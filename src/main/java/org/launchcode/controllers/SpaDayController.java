@@ -39,8 +39,8 @@ public class SpaDayController {
                 "</select><br>" +
                 "Manicure or Pedicure? <br>" +
                 "<select name = 'manipedi'>" +
-                "<option value = 'manicure'>Manicure</option>" +
-                "<option value = 'pedicure'>Pedicure</option>" +
+                "<option value = 'Manicure'>Manicure</option>" +
+                "<option value = 'Pedicure'>Pedicure</option>" +
                 "</select><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";
@@ -56,12 +56,23 @@ public class SpaDayController {
         facials.add("Rejuvenating");
         facials.add("Enzyme Peel");
 
+        ArrayList<String> nailPolish = new ArrayList<>();
+        nailPolish.add("Green");
+        nailPolish.add("Purple");
+        nailPolish.add("Pink");
+        nailPolish.add("Yellow");
+
         ArrayList<String> appropriateFacials = new ArrayList<>();
         for (int i = 0; i < facials.size(); i ++) {
             if (checkSkinType(skintype,facials.get(i))) {
                 appropriateFacials.add(facials.get(i));
             }
         }
+        model.addAttribute("name", name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("manipedi", manipedi);
+        model.addAttribute("appropriateFacials", appropriateFacials);
+        model.addAttribute("nailPolish", nailPolish);
 
         return "menu";
     }
