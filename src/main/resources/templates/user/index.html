@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments :: head">
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+
+<body>
+<h1 th:text="'Welcome ' + ${user.username} + '!'"></h1>
+<a th:href="@{/}">Select your spa services here!</a>
+</body>
+</html>
